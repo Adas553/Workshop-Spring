@@ -2,10 +2,12 @@ package pl.coderslab.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 import pl.coderslab.pojoClass.Book;
 import pl.coderslab.pojoClass.BookService;
-import pl.coderslab.pojoClass.MemoryBookService;
+import pl.coderslab.repository.MemoryBookService;
 
 import java.util.List;
 
@@ -13,12 +15,15 @@ import java.util.List;
 @RequestMapping("/books")
 public class BookController {
 
-    private BookService bookService;
+    private final BookService bookService;
     private final Logger logger = LoggerFactory.getLogger(toString().getClass().getSimpleName());
 
-    public BookController(MemoryBookService memoryBookService) {
-        this.bookService = memoryBookService;
+    public BookController(BookService bookService) {
+        this.bookService = bookService;
     }
+//    public BookController(MemoryBookService memoryBookService) {
+//        this.bookService = memoryBookService;
+//    }
 
     @GetMapping("/helloBook")
     public Book helloBook() {
@@ -33,11 +38,9 @@ public class BookController {
 
     @GetMapping("/{id}")
     public Book getBook(@PathVariable Long id) {
-        try {
-            return bookService.get(id);
-        } catch (IndexOutOfBoundsException e) {
-            return new Book();
-        }
+        return bookService.get(id).orElseThrow(() -> {
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND, "entity not found");
+        });
     }
 
     @PostMapping
@@ -46,17 +49,13 @@ public class BookController {
     }
 
     @PutMapping
-    public void updateBook(Book book) {
+    public void updateBook(@RequestBody Book book) {
         bookService.update(book);
     }
 
-    @DeleteMapping("/{id}")
-    public void deleteBook(@PathVariable Long id) {
-        try {
-            bookService.delete(id);
-        } catch (IndexOutOfBoundsException e) {
-            logger.info("Given book does not exits");
-        }
+    @DeleteMapping()
+    public void deleteBook(@RequestBody Book book) {
+            bookService.delete(book);
     }
 
 }
