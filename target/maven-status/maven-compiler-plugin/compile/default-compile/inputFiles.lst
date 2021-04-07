@@ -1,9 +1,9 @@
+/home/adam/development/Workshop-Spring/src/main/java/pl/coderslab/service/BookService.java
 /home/adam/development/Workshop-Spring/src/main/java/pl/coderslab/pojoClass/Book.java
-/home/adam/development/Workshop-Spring/src/main/java/pl/coderslab/repository/MemoryBookService.java
-/home/adam/development/Workshop-Spring/src/main/java/pl/coderslab/repository/JpaBookService.java
+/home/adam/development/Workshop-Spring/src/main/java/pl/coderslab/service/JpaBookService.java
+/home/adam/development/Workshop-Spring/src/main/java/pl/coderslab/service/MemoryBookService.java
 /home/adam/development/Workshop-Spring/src/main/java/pl/coderslab/config/AppConfig.java
 /home/adam/development/Workshop-Spring/src/main/java/pl/coderslab/config/AppInitializer.java
 /home/adam/development/Workshop-Spring/src/main/java/pl/coderslab/controller/BookController.java
 /home/adam/development/Workshop-Spring/src/main/java/pl/coderslab/repository/BookRepository.java
 /home/adam/development/Workshop-Spring/src/main/java/pl/coderslab/controller/ManageBookController.java
-/home/adam/development/Workshop-Spring/src/main/java/pl/coderslab/pojoClass/BookService.java

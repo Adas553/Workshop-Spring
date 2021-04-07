@@ -1,8 +1,9 @@
 pl/coderslab/pojoClass/Book.class
-pl/coderslab/pojoClass/BookService.class
-pl/coderslab/repository/MemoryBookService.class
 pl/coderslab/controller/BookController.class
 pl/coderslab/config/AppInitializer.class
+pl/coderslab/service/MemoryBookService.class
 pl/coderslab/repository/BookRepository.class
+pl/coderslab/service/JpaBookService.class
 pl/coderslab/config/AppConfig.class
 pl/coderslab/controller/ManageBookController.class
+pl/coderslab/service/BookService.class

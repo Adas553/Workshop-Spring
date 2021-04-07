@@ -6,8 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 import pl.coderslab.pojoClass.Book;
-import pl.coderslab.pojoClass.BookService;
-import pl.coderslab.repository.MemoryBookService;
+import pl.coderslab.service.BookService;
 
 import java.util.List;
 
